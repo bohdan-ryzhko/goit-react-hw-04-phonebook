@@ -75,5 +75,5 @@ Phonebook.propTypes = {
 		value: PropTypes.string.isRequired,
 		id: PropTypes.string.isRequired,
 	})),
-	filtered: PropTypes.string.isRequired,
+	filtered: PropTypes.string,
 }
