@@ -17,7 +17,12 @@ export const ContactForm = ({ getContacts }) => {
 			id: nanoid(),
 		});
 
-		event.currentTarget.reset();
+		resetForm();
+	}
+
+	const resetForm = () => {
+		setName("");
+		setNumber("");
 	}
 
 	const handleInput = ({ target: { name, value } }) => {
