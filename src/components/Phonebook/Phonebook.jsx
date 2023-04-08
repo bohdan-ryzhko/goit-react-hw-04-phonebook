@@ -71,4 +71,9 @@ Phonebook.propTypes = {
 		value: PropTypes.string.isRequired,
 		id: PropTypes.string.isRequired,
 	})),
+	contactsList: PropTypes.arrayOf(PropTypes.shape({
+		value: PropTypes.string.isRequired,
+		id: PropTypes.string.isRequired,
+	})),
+	filtered: PropTypes.string.isRequired,
 }
