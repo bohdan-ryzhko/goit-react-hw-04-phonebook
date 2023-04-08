@@ -1,6 +1,6 @@
 import css from "./ContactList.module.css";
 import PropTypes from 'prop-types';
-import { LOCAL_KEY } from "../../constants/localKey";
+import { LOCAL_KEY } from "constants/localKey";
 import { useEffect } from "react";
 
 export const ContactList = ({ list, removeContact }) => {
