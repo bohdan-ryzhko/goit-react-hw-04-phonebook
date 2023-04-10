@@ -5,6 +5,9 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 
+import { getFilteredContacts } from 'services/getFilteredContactsByName';
+import { notificationAlready } from 'services/notificationAlready';
+
 export const Phonebook = () => {
 	const { contacts, filter } = usePhonebook();
 	
@@ -30,24 +33,18 @@ export const Phonebook = () => {
 		setContactsList(prev => [...prev, data]);
 	};
 
-
-	const notificationAlready = name => {
-		alert(`${name} is already in contacts`);
-	}
-
-	const getFilteredContacts = () => {
-		const normalizeFilter = filtered.toLowerCase();
-		return contactsList.filter(({ name }) =>
-			name.toLowerCase().includes(normalizeFilter));
-	}
-
+	/*
+	Це функція, яка вертає функцію-обробник.
+	Мені треба при натисканні на кнопку "Delete"
+	передати id і по цьому id-шнику видалити контакт.
+	*/
 	const removeContact = id => () => {
 		setContactsList(prevContactsList => {
 			return prevContactsList.filter(contact => contact.id !== id)
 		})
 	}
 
-	const filteredContacts = getFilteredContacts();
+	const filteredContacts = getFilteredContacts(filtered, contactsList);
 
 	return (
 			<>
